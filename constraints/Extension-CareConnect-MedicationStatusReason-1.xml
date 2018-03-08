@@ -1,39 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <meta>
-    <lastUpdated value="2018-02-26T10:48:04.064+00:00" />
+    <lastUpdated value="2018-03-06T14:31:48.388+00:00" />
   </meta>
-  <url value="https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-coding-sctdescid" />
+  <url value="https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-MedicationStatusReason-1" />
   <version value="1.0.0" />
-  <name value="Extension-coding-sctdescid" />
+  <name value="Extension-CareConnect-MedicationStatusReason-1" />
   <status value="draft" />
-  <date value="2017-07-10T15:19:15.9321646+01:00" />
+  <date value="2018-03-06T11:24:16.033+00:00" />
   <publisher value="HL7 UK" />
-  <description value="This Extension resource is constrained to support SNOMED CT Description ID for the display." />
+  <description value="To record the reason the medication (plan or order) was stopped and the date this occurred." />
   <copyright value="Copyright © 2016 HL7 UK&#xD;&#xA;&#xD;&#xA;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.&#xD;&#xA;&#xD;&#xA;HL7® FHIR® standard Copyright © 2011+ HL7&#xD;&#xA;&#xD;&#xA;The HL7® FHIR® standard is used under the FHIR license. You may obtain a copy of the FHIR license at&#xD;&#xA;&#xD;&#xA;https://www.hl7.org/fhir/license.html" />
   <fhirVersion value="3.0.1" />
   <kind value="complex-type" />
   <abstract value="false" />
   <contextType value="resource" />
-  <context value="Encounter" />
-  <context value="Condition" />
-  <context value="Observation" />
-  <context value="Flag" />
-  <context value="Immunization" />
-  <context value="AllergyIntolerance" />
-  <context value="FamilyMemberHistory" />
   <context value="MedicationRequest" />
-  <context value="MedicationStatement" />
-  <context value="Procedure" />
-  <context value="Medication" />
   <type value="Extension" />
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <snapshot>
     <element id="Extension">
       <path value="Extension" />
-      <short value="The SNOMED CT Description ID for the display" />
-      <definition value="The SNOMED CT Description ID for the display." />
+      <short value="To record the reason the medication (plan or order) was stopped and the date this occurred" />
+      <definition value="To record the reason the medication (plan or order) was stopped and the date this occurred." />
       <min value="0" />
       <max value="1" />
       <base>
@@ -143,11 +133,11 @@
         <map value="N/A" />
       </mapping>
     </element>
-    <element id="Extension.extension:descriptionId">
+    <element id="Extension.extension:statusReason">
       <path value="Extension.extension" />
-      <sliceName value="descriptionId" />
-      <short value="The SNOMED CT Description ID" />
-      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension." />
+      <sliceName value="statusReason" />
+      <short value="Reason for current status" />
+      <definition value="Reason for current status." />
       <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone." />
       <alias value="extensions" />
       <alias value="user content" />
@@ -185,7 +175,7 @@
         <map value="N/A" />
       </mapping>
     </element>
-    <element id="Extension.extension:descriptionId.id">
+    <element id="Extension.extension:statusReason.id">
       <path value="Extension.extension.id" />
       <representation value="xmlAttr" />
       <short value="xml:id (or equivalent in JSON)" />
@@ -214,7 +204,7 @@
         <map value="n/a" />
       </mapping>
     </element>
-    <element id="Extension.extension:descriptionId.extension">
+    <element id="Extension.extension:statusReason.extension">
       <path value="Extension.extension.extension" />
       <slicing>
         <discriminator>
@@ -263,7 +253,7 @@
         <map value="N/A" />
       </mapping>
     </element>
-    <element id="Extension.extension:descriptionId.url">
+    <element id="Extension.extension:statusReason.url">
       <path value="Extension.extension.url" />
       <representation value="xmlAttr" />
       <short value="identifies the meaning of the extension" />
@@ -279,7 +269,7 @@
       <type>
         <code value="uri" />
       </type>
-      <fixedUri value="descriptionId" />
+      <fixedUri value="statusReason" />
       <condition value="ele-1" />
       <constraint>
         <key value="ele-1" />
@@ -297,11 +287,11 @@
         <map value="N/A" />
       </mapping>
     </element>
-    <element id="Extension.extension:descriptionId.valueId:valueId">
-      <path value="Extension.extension.valueId" />
-      <sliceName value="valueId" />
-      <short value="The SNOMED CT Description ID" />
-      <definition value="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." />
+    <element id="Extension.extension:statusReason.value[x]:valueCodeableConcept">
+      <path value="Extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="To record the reason the medication (plan or order) was stopped" />
+      <definition value="To record the reason the medication (plan or order) was stopped." />
       <comment value="A stream of bytes, base64 encoded" />
       <min value="0" />
       <max value="1" />
@@ -311,7 +301,7 @@
         <max value="1" />
       </base>
       <type>
-        <code value="id" />
+        <code value="CodeableConcept" />
       </type>
       <condition value="ele-1" />
       <constraint>
@@ -330,15 +320,15 @@
         <map value="N/A" />
       </mapping>
     </element>
-    <element id="Extension.extension:descriptionDisplay">
+    <element id="Extension.extension:statusChangeDate">
       <path value="Extension.extension" />
-      <sliceName value="descriptionDisplay" />
-      <short value="The SNOMED CT display for the description ID" />
-      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension." />
+      <sliceName value="statusChangeDate" />
+      <short value="To record the date this occurred" />
+      <definition value="To record the date this occurred." />
       <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone." />
       <alias value="extensions" />
       <alias value="user content" />
-      <min value="1" />
+      <min value="0" />
       <max value="1" />
       <base>
         <path value="Element.extension" />
@@ -372,7 +362,7 @@
         <map value="N/A" />
       </mapping>
     </element>
-    <element id="Extension.extension:descriptionDisplay.id">
+    <element id="Extension.extension:statusChangeDate.id">
       <path value="Extension.extension.id" />
       <representation value="xmlAttr" />
       <short value="xml:id (or equivalent in JSON)" />
@@ -401,7 +391,7 @@
         <map value="n/a" />
       </mapping>
     </element>
-    <element id="Extension.extension:descriptionDisplay.extension">
+    <element id="Extension.extension:statusChangeDate.extension">
       <path value="Extension.extension.extension" />
       <slicing>
         <discriminator>
@@ -450,7 +440,7 @@
         <map value="N/A" />
       </mapping>
     </element>
-    <element id="Extension.extension:descriptionDisplay.url">
+    <element id="Extension.extension:statusChangeDate.url">
       <path value="Extension.extension.url" />
       <representation value="xmlAttr" />
       <short value="identifies the meaning of the extension" />
@@ -466,7 +456,7 @@
       <type>
         <code value="uri" />
       </type>
-      <fixedUri value="descriptionDisplay" />
+      <fixedUri value="statusChangeDate" />
       <condition value="ele-1" />
       <constraint>
         <key value="ele-1" />
@@ -484,11 +474,11 @@
         <map value="N/A" />
       </mapping>
     </element>
-    <element id="Extension.extension:descriptionDisplay.valueString:valueString">
-      <path value="Extension.extension.valueString" />
-      <sliceName value="valueString" />
-      <short value="The SNOMED CT display for the description ID" />
-      <definition value="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." />
+    <element id="Extension.extension:statusChangeDate.valueDateTime:valueDateTime">
+      <path value="Extension.extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
+      <short value="To record the date this occurred" />
+      <definition value="To record the date this occurred." />
       <comment value="A stream of bytes, base64 encoded" />
       <min value="0" />
       <max value="1" />
@@ -498,7 +488,7 @@
         <max value="1" />
       </base>
       <type>
-        <code value="string" />
+        <code value="dateTime" />
       </type>
       <condition value="ele-1" />
       <constraint>
@@ -533,7 +523,7 @@
       <type>
         <code value="uri" />
       </type>
-      <fixedUri value="https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-coding-sctdescid" />
+      <fixedUri value="https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-MedicationStatusReason-1" />
       <condition value="ele-1" />
       <constraint>
         <key value="ele-1" />
@@ -674,6 +664,9 @@
       <type>
         <code value="Timing" />
       </type>
+      <type>
+        <code value="Meta" />
+      </type>
       <condition value="ele-1" />
       <constraint>
         <key value="ele-1" />
@@ -695,8 +688,8 @@
   <differential>
     <element id="Extension">
       <path value="Extension" />
-      <short value="The SNOMED CT Description ID for the display" />
-      <definition value="The SNOMED CT Description ID for the display." />
+      <short value="To record the reason the medication (plan or order) was stopped and the date this occurred" />
+      <definition value="To record the reason the medication (plan or order) was stopped and the date this occurred." />
       <max value="1" />
     </element>
     <element id="Extension.extension">
@@ -709,162 +702,54 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Extension.extension:descriptionId">
+    <element id="Extension.extension:statusReason">
       <path value="Extension.extension" />
-      <sliceName value="descriptionId" />
-      <short value="The SNOMED CT Description ID" />
+      <sliceName value="statusReason" />
+      <short value="Reason for current status" />
+      <definition value="Reason for current status." />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Extension.extension:descriptionId.url">
+    <element id="Extension.extension:statusReason.url">
       <path value="Extension.extension.url" />
-      <fixedUri value="descriptionId" />
+      <fixedUri value="statusReason" />
     </element>
-    <element id="Extension.extension:descriptionId.valueId:valueId">
-      <path value="Extension.extension.valueId" />
-      <sliceName value="valueId" />
-      <short value="The SNOMED CT Description ID" />
+    <element id="Extension.extension:statusReason.value[x]:valueCodeableConcept">
+      <path value="Extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="To record the reason the medication (plan or order) was stopped" />
+      <definition value="To record the reason the medication (plan or order) was stopped." />
       <type>
-        <code value="id" />
+        <code value="CodeableConcept" />
       </type>
     </element>
-    <element id="Extension.extension:descriptionDisplay">
+    <element id="Extension.extension:statusChangeDate">
       <path value="Extension.extension" />
-      <sliceName value="descriptionDisplay" />
-      <short value="The SNOMED CT display for the description ID" />
-      <min value="1" />
+      <sliceName value="statusChangeDate" />
+      <short value="To record the date this occurred" />
+      <definition value="To record the date this occurred." />
       <max value="1" />
     </element>
-    <element id="Extension.extension:descriptionDisplay.url">
+    <element id="Extension.extension:statusChangeDate.url">
       <path value="Extension.extension.url" />
-      <fixedUri value="descriptionDisplay" />
+      <fixedUri value="statusChangeDate" />
     </element>
-    <element id="Extension.extension:descriptionDisplay.valueString:valueString">
-      <path value="Extension.extension.valueString" />
-      <sliceName value="valueString" />
-      <short value="The SNOMED CT display for the description ID" />
+    <element id="Extension.extension:statusChangeDate.valueDateTime:valueDateTime">
+      <path value="Extension.extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
+      <short value="To record the date this occurred" />
+      <definition value="To record the date this occurred." />
       <type>
-        <code value="string" />
+        <code value="dateTime" />
       </type>
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-coding-sctdescid" />
+      <fixedUri value="https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-MedicationStatusReason-1" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />
       <max value="0" />
-      <type>
-        <code value="base64Binary" />
-      </type>
-      <type>
-        <code value="boolean" />
-      </type>
-      <type>
-        <code value="code" />
-      </type>
-      <type>
-        <code value="date" />
-      </type>
-      <type>
-        <code value="dateTime" />
-      </type>
-      <type>
-        <code value="decimal" />
-      </type>
-      <type>
-        <code value="id" />
-      </type>
-      <type>
-        <code value="instant" />
-      </type>
-      <type>
-        <code value="integer" />
-      </type>
-      <type>
-        <code value="markdown" />
-      </type>
-      <type>
-        <code value="oid" />
-      </type>
-      <type>
-        <code value="positiveInt" />
-      </type>
-      <type>
-        <code value="string" />
-      </type>
-      <type>
-        <code value="time" />
-      </type>
-      <type>
-        <code value="unsignedInt" />
-      </type>
-      <type>
-        <code value="uri" />
-      </type>
-      <type>
-        <code value="Address" />
-      </type>
-      <type>
-        <code value="Age" />
-      </type>
-      <type>
-        <code value="Annotation" />
-      </type>
-      <type>
-        <code value="Attachment" />
-      </type>
-      <type>
-        <code value="CodeableConcept" />
-      </type>
-      <type>
-        <code value="Coding" />
-      </type>
-      <type>
-        <code value="ContactPoint" />
-      </type>
-      <type>
-        <code value="Count" />
-      </type>
-      <type>
-        <code value="Distance" />
-      </type>
-      <type>
-        <code value="Duration" />
-      </type>
-      <type>
-        <code value="HumanName" />
-      </type>
-      <type>
-        <code value="Identifier" />
-      </type>
-      <type>
-        <code value="Money" />
-      </type>
-      <type>
-        <code value="Period" />
-      </type>
-      <type>
-        <code value="Quantity" />
-      </type>
-      <type>
-        <code value="Range" />
-      </type>
-      <type>
-        <code value="Ratio" />
-      </type>
-      <type>
-        <code value="Reference" />
-      </type>
-      <type>
-        <code value="SampledData" />
-      </type>
-      <type>
-        <code value="Signature" />
-      </type>
-      <type>
-        <code value="Timing" />
-      </type>
     </element>
   </differential>
 </StructureDefinition>
