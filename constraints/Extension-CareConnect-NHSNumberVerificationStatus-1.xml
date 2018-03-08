@@ -1,29 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <meta>
-    <lastUpdated value="2018-02-27T12:06:00.185+00:00" />
+    <lastUpdated value="2018-03-06T15:03:21.574+00:00" />
   </meta>
-  <url value="https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-Evidence-1" />
+  <url value="https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1" />
   <version value="1.0.0" />
-  <name value="Extension-CareConnect-Evidence-1" />
+  <name value="Extension-CareConnect-NHSNumberVerificationStatus-1" />
   <status value="draft" />
-  <date value="2017-07-13T10:41:53.9272632+01:00" />
+  <date value="2017-06-05T17:21:09.3604748+01:00" />
   <publisher value="HL7 UK" />
-  <description value="This Extension resource is constrained to support a reference to results of investigations that confirmed the certainty of the diagnosis. Examples might include results of skin prick allergy tests." />
+  <description value="This extension is constrained to represent the NHS Number Verification Status." />
   <copyright value="Copyright © 2016 HL7 UK&#xD;&#xA;&#xD;&#xA;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.&#xD;&#xA;&#xD;&#xA;HL7® FHIR® standard Copyright © 2011+ HL7&#xD;&#xA;&#xD;&#xA;The HL7® FHIR® standard is used under the FHIR license. You may obtain a copy of the FHIR license at&#xD;&#xA;&#xD;&#xA;https://www.hl7.org/fhir/license.html" />
-  <fhirVersion value="3.0.1" />
+  <fhirVersion value="3.0.0" />
   <kind value="complex-type" />
   <abstract value="false" />
   <contextType value="resource" />
-  <context value="AllergyIntolerance" />
+  <context value="Patient.identifier" />
   <type value="Extension" />
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <snapshot>
     <element id="Extension">
       <path value="Extension" />
-      <short value="A reference to results of investigations that confirmed the certainty of the diagnosis" />
-      <definition value="A reference to results of investigations that confirmed the certainty of the diagnosis." />
+      <short value="NHS number verification status" />
+      <definition value="The verification/tracing status of the NHS number." />
       <min value="0" />
       <max value="*" />
       <base>
@@ -149,7 +149,7 @@
       <type>
         <code value="uri" />
       </type>
-      <fixedUri value="https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-Evidence-1" />
+      <fixedUri value="https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1" />
       <condition value="ele-1" />
       <constraint>
         <key value="ele-1" />
@@ -167,13 +167,13 @@
         <map value="N/A" />
       </mapping>
     </element>
-    <element id="Extension.valueReference:valueReference">
-      <path value="Extension.valueReference" />
-      <sliceName value="valueReference" />
-      <short value="A reference to results of investigations that confirmed the certainty of the diagnosis" />
-      <definition value="A reference to results of investigations that confirmed the certainty of the diagnosis." />
+    <element id="Extension.valueCodeableConcept:valueCodeableConcept">
+      <path value="Extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Verification status of the NHS number" />
+      <definition value="Verification status of the NHS number." />
       <comment value="A stream of bytes, base64 encoded" />
-      <min value="0" />
+      <min value="1" />
       <max value="1" />
       <base>
         <path value="Extension.value[x]" />
@@ -181,8 +181,7 @@
         <max value="1" />
       </base>
       <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport" />
+        <code value="CodeableConcept" />
       </type>
       <condition value="ele-1" />
       <constraint>
@@ -192,6 +191,13 @@
         <expression value="hasValue() | (children().count() &gt; id.count())" />
         <xpath value="@value|f:*|h:div" />
       </constraint>
+      <binding>
+        <strength value="required" />
+        <description value="NHS Number Verification Status" />
+        <valueSetReference>
+          <reference value="https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NHSNumberVerificationStatus-1" />
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="rim" />
         <map value="n/a" />
@@ -205,22 +211,29 @@
   <differential>
     <element id="Extension">
       <path value="Extension" />
-      <short value="A reference to results of investigations that confirmed the certainty of the diagnosis" />
-      <definition value="A reference to results of investigations that confirmed the certainty of the diagnosis." />
+      <short value="NHS number verification status" />
+      <definition value="The verification/tracing status of the NHS number." />
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-Evidence-1" />
+      <fixedUri value="https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1" />
     </element>
-    <element id="Extension.valueReference:valueReference">
-      <path value="Extension.valueReference" />
-      <sliceName value="valueReference" />
-      <short value="A reference to results of investigations that confirmed the certainty of the diagnosis" />
-      <definition value="A reference to results of investigations that confirmed the certainty of the diagnosis." />
+    <element id="Extension.valueCodeableConcept:valueCodeableConcept">
+      <path value="Extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Verification status of the NHS number" />
+      <definition value="Verification status of the NHS number." />
+      <min value="1" />
       <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport" />
+        <code value="CodeableConcept" />
       </type>
+      <binding>
+        <strength value="required" />
+        <description value="NHS Number Verification Status" />
+        <valueSetReference>
+          <reference value="https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NHSNumberVerificationStatus-1" />
+        </valueSetReference>
+      </binding>
     </element>
   </differential>
 </StructureDefinition>
